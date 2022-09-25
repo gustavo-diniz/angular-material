@@ -1,0 +1,22 @@
+<h2>Lista de Agentes</h2>
+
+
+<input multiple type="file" class="file-input" (change)="xmlInputFiles($event)" accept="text/xml" #fileUpload>
+
+<div class="progress">
+
+  <label *ngIf="uploadProgress" class="md-button md-raised md-primary">Carregando Arquivos, essa operações pode levar
+    alguns minutos ... </label>
+
+  <mat-progress-bar class="progress-bar" mode="determinate" [value]="uploadProgress" *ngIf="uploadProgress">
+
+
+  </mat-progress-bar>
+
+  <mat-icon class="cancel-upload" (click)="cancelUpload()" *ngIf="uploadProgress">delete</mat-icon>
+
+</div>
+
+<div *ngIf="uploadFinish">
+  <label class="sucessMsg"> {{sucessMsg}}</label>
+</div>
